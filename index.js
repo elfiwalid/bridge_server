@@ -86,7 +86,7 @@ async function startSock(ecommercantId) {
       /* sauvegarde BDD */
       try {
         await axios.post(
-          'http://localhost:8080/api/session/save',
+          'http://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/session/save',
           {
             numero_client: numeroClient,
             ecommercant_id: ecomId,
@@ -102,7 +102,7 @@ async function startSock(ecommercantId) {
       /* réponse IA automatique */
       try {
         const { data } = await axios.post(
-          'http://localhost:8080/api/ia/generer-reponse',
+          'http://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/ia/generer-reponse',
           {
             ecommercant_id: ecomId,
             produit_id: produitId,
@@ -126,7 +126,7 @@ async function startSock(ecommercantId) {
       console.log('🔍 Session non trouvée, recherche BDD…');
       try {
         const { data } = await axios.get(
-          `http://localhost:8080/api/session/find?numero_client=${numeroClient}`
+          `http://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/session/find?numero_client=${numeroClient}`
         );
         session = {
           ecomId: data.ecommercant_id,
@@ -143,7 +143,7 @@ async function startSock(ecommercantId) {
     if (session?.ecomId && session?.produitId) {
       try {
         const { data } = await axios.post(
-          'http://localhost:8080/api/ia/chat',
+          'http://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/ia/chat',
           {
             ecommercant_id: session.ecomId,
             produit_id: session.produitId,
@@ -264,7 +264,7 @@ app.delete('/whatsapp/:id', async (req, res) => {
 /* ---------- DÉMARRAGE ---------- */
 app.listen(PORT, () => {
   console.log(
-    `🚀 Bridge WhatsApp multi-sessions actif : http://localhost:${PORT}`
+    `🚀 Bridge WhatsApp multi-sessions actif : http://server-node-g9ffbwd4fthnbbfp.canadacentral-01.azurewebsites.net`
   );
 });
 
