@@ -18,7 +18,7 @@ const {
 } = require('@whiskeysockets/baileys');
 
 /* ---------- CONFIG ---------- */
-const PORT        = 3000;
+const PORT = process.env.PORT || 3000;
 const SESSION_DIR = './sessions';           // <-- nom uniforme
 fs.ensureDirSync(SESSION_DIR);
 
