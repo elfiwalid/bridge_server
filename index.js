@@ -86,7 +86,7 @@ async function startSock(ecommercantId) {
       /* sauvegarde BDD */
       try {
         await axios.post(
-          'http://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/session/save',
+          'https://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/session/save',
           {
             numero_client: numeroClient,
             ecommercant_id: ecomId,
@@ -102,7 +102,7 @@ async function startSock(ecommercantId) {
       /* réponse IA automatique */
       try {
         const { data } = await axios.post(
-          'http://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/ia/generer-reponse',
+          'https://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/ia/generer-reponse',
           {
             ecommercant_id: ecomId,
             produit_id: produitId,
@@ -126,7 +126,7 @@ async function startSock(ecommercantId) {
       console.log('🔍 Session non trouvée, recherche BDD…');
       try {
         const { data } = await axios.get(
-          `http://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/session/find?numero_client=${numeroClient}`
+          `https://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/session/find?numero_client=${numeroClient}`
         );
         session = {
           ecomId: data.ecommercant_id,
@@ -143,7 +143,7 @@ async function startSock(ecommercantId) {
     if (session?.ecomId && session?.produitId) {
       try {
         const { data } = await axios.post(
-          'http://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/ia/chat',
+          'https://backend-app-mobile-fkashndyb5b6c2c0.canadacentral-01.azurewebsites.net/api/ia/chat',
           {
             ecommercant_id: session.ecomId,
             produit_id: session.produitId,
