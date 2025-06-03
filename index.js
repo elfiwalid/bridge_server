@@ -264,7 +264,7 @@ app.delete('/whatsapp/:id', async (req, res) => {
 /* ---------- DÉMARRAGE ---------- */
 app.listen(PORT, () => {
   console.log(
-    `🚀 Bridge WhatsApp multi-sessions actif : http://server-node-g9ffbwd4fthnbbfp.canadacentral-01.azurewebsites.net`
+    `🚀 Bridge WhatsApp multi-sessions actif : https://server-whatsapp-ddd8a8fadvahhshv.canadacentral-01.azurewebsites.net`
   );
 });
 
